@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/star_wars"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="au.com.doshii.starwars.view.fragment.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_goto_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="au.com.doshii.starwars.view.fragment.ListFragment"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_goto_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_back_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="dataOption"
+            app:argType="au.com.doshii.starwars.model.DataOption" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="au.com.doshii.starwars.view.fragment.DetailsFragment"
+        tools:layout="@layout/fragment_details">
+        <action
+            android:id="@+id/action_backto_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="details"
+            app:argType="java.util.HashMap" />
+    </fragment>
+</navigation>
